@@ -1,6 +1,9 @@
 <template>
     <div>
-        <movie-card />
+        <movie-card
+            v-for="(movie, index) in movieList"
+            :key="index"
+            :movie="movie" />
     </div>
 </template>
 
@@ -12,6 +15,10 @@ export default {
         MovieCard,
 
     },
+    props: {
+        movieList: Array,
+
+    }
     
 }
 </script>

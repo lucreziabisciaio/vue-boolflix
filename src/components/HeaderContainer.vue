@@ -1,16 +1,27 @@
 <template>
     <div>
-        <input type="text" />
+        <input 
+            type="text"
+            placeholder="Search..." 
+            v-model="keywordSearch"
+            />
 
         <span>
-            <button>Search!</button>
+            <button
+                @click="$emit('search', keywordSearch)">Search!</button>
         </span>
     </div>
 </template>
 
 <script>
 export default {
-    
+    data() {
+        return {
+            keywordSearch: "",
+
+        }
+    }
+
 }
 </script>
 
