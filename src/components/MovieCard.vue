@@ -9,7 +9,7 @@
         </div>
 
         <div class="movie_poster">
-            <img class="w-100" :src="getImg()" alt="">
+            <img class="w-100" :src="getImg()" alt="" />
         </div>
     </div>
 </template>

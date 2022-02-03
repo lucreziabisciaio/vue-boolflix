@@ -1,5 +1,5 @@
 <template>
-    <div class="movies_container bg-secondary">
+    <div class="movies_container">
         <div class="container d-flex justify-content-between align-items-center flex-wrap">
 
             <movie-card

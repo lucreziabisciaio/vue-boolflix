@@ -1,5 +1,5 @@
 <template>
-    <div class="header_container d-flex justify-content-between align-items-center p-2 bg-dark">
+    <div class="header_container d-flex justify-content-between align-items-center p-2">
         <div class="logo">
             <div class="text-danger fs-4 fw-bolder">BOOLFLIX</div>
         </div>
