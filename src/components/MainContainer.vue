@@ -1,9 +1,14 @@
 <template>
-    <div>
-        <movie-card
-            v-for="movie in movieList"
-            :key="movie.id"
-            :movie="movie" />
+    <div class="movies_container bg-secondary">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap">
+
+            <movie-card
+                v-for="movie in movieList"
+                :key="movie.id"
+                :movie="movie"
+            />
+
+        </div>
     </div>
 </template>
 
