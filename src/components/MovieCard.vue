@@ -17,7 +17,11 @@ export default {
     },
     methods: {
         getImg() {
-            return `https://www.themoviedb.org/t/p/original${this.movie.poster_path}`
+            if (this.movie.poster_path !== null) {
+               return `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${this.movie.poster_path}` 
+            } else {
+                return `https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png`
+            }
         }
     }
     
