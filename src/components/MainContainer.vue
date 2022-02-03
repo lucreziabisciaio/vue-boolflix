@@ -1,8 +1,8 @@
 <template>
     <div>
         <movie-card
-            v-for="(movie, index) in movieList"
-            :key="index"
+            v-for="movie in movieList"
+            :key="movie.id"
             :movie="movie" />
     </div>
 </template>
