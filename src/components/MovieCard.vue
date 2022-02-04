@@ -1,5 +1,5 @@
 <template>
-    <div class="movie_card border border-white m-2">
+    <div class="movie_card border border-white overflow-hidden m-2">
         <div class="movie_info h-100 w-100 text-white p-3 bg-dark">
             <div>{{movie.title}}</div>
             <div>{{movie.original_title}}</div>
@@ -22,10 +22,10 @@ export default {
     methods: {
         getImg() {
             if (this.movie.poster_path !== null) {
-               return `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${this.movie.poster_path}` 
+               return `http://image.tmdb.org/t/p/w342/${this.movie.poster_path}` 
             } else {
                 // da cambiare
-                return `https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png`
+                return `https://www.2queue.com/2queue/wp-content/uploads/sites/6/tdomf/4299/movie-poster-coming-soon.png`
             }
         }
     }
@@ -34,10 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//stesse w/h dell'img
 .movie_card {
-    max-width: 300px;
-    max-height: 450px;
+    width: 342px;
+    height: 450px;
 
     position: relative;
 
