@@ -38,6 +38,7 @@ export default {
       return axios.get(`https://api.themoviedb.org/3/search/movie`, {params})
       .then((response) => {
         this.movieList = response.data.results
+        this.mergeArrays()
       })
     },
     // funzione di ricerca delle SERIE TV
@@ -51,10 +52,16 @@ export default {
       return axios.get(`https://api.themoviedb.org/3/search/tv`, {params})
       .then((response) => {
         this.seriesList = response.data.results
+        this.mergeArrays()
       })
+    }, 
+    // funzione che unisce i due array (film, serie tv) (to fix?)
+    mergeArrays() {
+      return this.searchResultList = [...this.movieList, ...this.seriesList]
     },
+    // richiamo le due funzioni di ricerca per inviarle al @search
+    // all'interno dell'header-container
     searchInput(k) {
-      this.searchResultList = [...this.movieList, ...this.seriesList]
       this.searchMovie(k)
       this.searchSerie(k)
     }
