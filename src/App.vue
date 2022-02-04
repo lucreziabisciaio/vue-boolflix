@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       movieList: [],
+      api_key: '01092a6fa91a73f0dcb49eff60b71512',
 
     }
   },
@@ -27,7 +28,12 @@ export default {
     // funzione di ricerca all'interno dell'api
     // k = keywordSearch in v-model
     searchMovie(k) {
-      return axios.get(`https://api.themoviedb.org/3/search/movie?query=${k}&api_key=01092a6fa91a73f0dcb49eff60b71512`)
+      const params = {
+        query: k,
+        api_key: this.api_key
+      }
+
+      return axios.get(`https://api.themoviedb.org/3/search/movie`, {params})
       .then((response) => {
         this.movieList = response.data.results
       })

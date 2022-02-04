@@ -1,6 +1,6 @@
 <template>
     <div class="movie_card border border-white m-2">
-        <div class="movie_info h-100 text-white p-3 bg-dark">
+        <div class="movie_info h-100 w-100 text-white p-3 bg-dark">
             <div>{{movie.title}}</div>
             <div>{{movie.original_title}}</div>
             <div>{{movie.original_language}}</div>
