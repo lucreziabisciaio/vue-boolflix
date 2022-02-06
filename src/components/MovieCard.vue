@@ -3,11 +3,17 @@
         <div class="movie_info h-100 w-100 text-white p-3 bg-dark">
             <div>{{movie.title}}</div>
             <div>{{movie.original_title}}</div>
+
             <!-- flags -->
             <div v-if="!languagesList.includes(movie.original_language)">{{movie.original_language}}</div>
-            <div v-else><img :src="`/flags/${movie.original_language}.png`" alt=""></div>
+            <div v-else>
+                <img :src="`/flags/${movie.original_language}.png`" alt="" />
+            </div>
+            <!-- stars -->
+            <div>
+                <i v-for="star in Math.round(movie.vote_average / 2)" :key="star" class="far fa-star"></i>
+            </div>
 
-            <div>{{movie.vote_average}}</div>
             <div>{{movie.overview}}</div>
         </div>
 
