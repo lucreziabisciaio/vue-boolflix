@@ -2,7 +2,7 @@
     <div class="movies_container">
         <div class="container d-flex justify-content-between align-items-center flex-wrap">
 
-            <movie-card
+            <movie-card :languagesList="languagesList"
                 v-for="movie in movieList"
                 :key="movie.id"
                 :movie="movie"
@@ -22,7 +22,8 @@ export default {
     },
     props: {
         movieList: Array,
-
+        languagesList: Array,
+        
     }
     
 }

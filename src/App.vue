@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-container @search="searchInput" />
-    <main-container :movieList="searchResultList" />
+    <main-container :movieList="searchResultList" :languagesList="languagesList" />
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
       movieList: [],
       seriesList: [],
       searchResultList: [],
+      languagesList: ['it', 'en', 'de', 'fr'],
       api_key: '01092a6fa91a73f0dcb49eff60b71512',
 
     }
