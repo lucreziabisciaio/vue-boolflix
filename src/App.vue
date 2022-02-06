@@ -36,11 +36,13 @@ export default {
         api_key: this.api_key
       }
 
-      return axios.get(`https://api.themoviedb.org/3/search/movie`, {params})
-      .then((response) => {
-        this.movieList = response.data.results
-        this.mergeArrays()
-      })
+      if(k !== null) {
+        return axios.get(`https://api.themoviedb.org/3/search/movie`, {params})
+        .then((response) => {
+          this.movieList = response.data.results
+          this.mergeArrays()
+        })
+      }
     },
     // funzione di ricerca delle SERIE TV
     // k = keywordSearch in v-model
@@ -50,11 +52,13 @@ export default {
         api_key: this.api_key
       }
 
-      return axios.get(`https://api.themoviedb.org/3/search/tv`, {params})
-      .then((response) => {
-        this.seriesList = response.data.results
-        this.mergeArrays()
-      })
+      if(k !== null) {
+        return axios.get(`https://api.themoviedb.org/3/search/tv`, {params})
+        .then((response) => {
+          this.seriesList = response.data.results
+          this.mergeArrays()
+        })
+      }
     }, 
     // funzione che unisce i due array (film, serie tv) (to fix?)
     mergeArrays() {
