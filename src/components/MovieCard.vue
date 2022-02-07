@@ -1,8 +1,8 @@
 <template>
-    <div class="movie_card border border-white overflow-hidden m-2">
+    <div class="movie_card border-0 overflow-hidden">
         <div class="movie_info h-100 w-100 text-white p-3 bg-dark">
-            <div>{{movie.title}}</div>
-            <div>{{movie.original_title}}</div>
+            <div>Titolo: {{movie.title}}</div>
+            <div v-if="!movie.original_title === movie.title">TItolo originale: {{movie.original_title}}</div>
 
             <!-- flags -->
             <div v-if="!languagesList.includes(movie.original_language)">{{movie.original_language}}</div>
@@ -11,14 +11,14 @@
             </div>
             <!-- stars -->
             <div>
-                <stars-classification :vote="movie.vote_average"/>
+                <span class="me-2">Voto:</span><stars-classification :vote="movie.vote_average"/>
             </div>
 
             <div>{{movie.overview}}</div>
         </div>
 
         <div class="movie_poster">
-            <img class="w-100" :src="getImg()" alt="" />
+            <img class="img-fluid" :src="getImg()" alt="" />
         </div>
     </div>
 </template>

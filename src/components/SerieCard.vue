@@ -1,8 +1,8 @@
 <template>
-    <div class="serie_card border border-white overflow-hidden m-2">
+    <div class="serie_card border-0 overflow-hidden">
         <div class="serie_info h-100 w-100 text-white p-3 bg-dark">
-            <div>{{serie.title}}</div>
-            <div>{{serie.original_title}}</div>
+            <div>Titolo: {{serie.title}}</div>
+            <div v-if="!movie.original_title === movie.title">Titolo originale: {{serie.original_title}}</div>
 
             <!-- flags -->
             <div v-if="!languagesList.includes(serie.original_language)">{{serie.original_language}}</div>
@@ -11,14 +11,14 @@
             </div>
             <!-- stars -->
             <div>
-                <stars-classification :vote="serie.vote_average"/>
+                <span class="me-2">Voto:</span><stars-classification :vote="serie.vote_average"/>
             </div>
 
             <div>{{serie.overview}}</div>
         </div>
 
         <div class="serie_poster">
-            <img class="w-100" :src="getImg()" alt="" />
+            <img class="img-fluid" :src="getImg()" alt="" />
         </div>
     </div>
 </template>
