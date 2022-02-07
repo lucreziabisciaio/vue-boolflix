@@ -11,7 +11,7 @@
             </div>
             <!-- stars -->
             <div>
-                <i v-for="star in Math.round(movie.vote_average / 2)" :key="star" class="far fa-star"></i>
+                <stars-classification :vote="movie.vote_average"/>
             </div>
 
             <div>{{movie.overview}}</div>
@@ -24,7 +24,12 @@
 </template>
 
 <script>
+import StarsClassification from './StarsClassification.vue'
+
 export default {
+    components: {
+        StarsClassification,
+    },
     props: {
         movie: Object,
         languagesList: Array,
