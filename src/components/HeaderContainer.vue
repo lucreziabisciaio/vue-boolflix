@@ -18,18 +18,23 @@
 
         </nav>
 
-        <div class="search_area">
+        <div class="search_area d-flex align-items-center">
             <input
+                class="text-white"
                 type="text"
                 placeholder="Search..."
                 v-model="keywordSearch"
             />
 
             <span>
-                <button
-                    @click="$emit('search', keywordSearch)">Search</button>
+                <i class="fas fa-search" @click="$emit('search', keywordSearch)"></i>
             </span>
+
+            <p class="fw-bold m-0 px-3 text-white">BAMBINI</p>
+            <i class="fas fa-bell text-white"></i>
+            
         </div>
+        
     </div>
 </template>
 
@@ -46,21 +51,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.logo {
-    width: 150px;
-
-    a {
-        cursor: pointer;
-    }
-}
-
-nav ul {
-    margin: 0 35px;
-
-    li {
-        display: inline;
-        margin: 0 10px;
-        cursor: pointer;
-    }
-}
+@import '@/style/headerContainer.scss'
 </style>
