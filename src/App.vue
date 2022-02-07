@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <header-container @search="searchInput" />
-    <main-container :movieList="searchResultList" :languagesList="languagesList" />
+    <main-container
+      :movieList="filteredMovies"
+      :seriesList="filteredSeries"
+      :languagesList="languagesList" />
   </div>
 </template>
 
@@ -19,58 +22,38 @@ export default {
   },
   data() {
     return {
-      movieList: [],
-      seriesList: [],
-      searchResultList: [],
+      inputResults: [],
+      filteredMovies: [],
+      filteredSeries: [],
       languagesList: ['it', 'en', 'de', 'fr'],
       api_key: '01092a6fa91a73f0dcb49eff60b71512',
 
     }
   },
   methods: {
-    // funzione di ricerca dei FILM all'interno dell'api
-    // k = keywordSearch in v-model
-    searchMovie(k) {
+    searchMovie() {
+      this.filteredMovies = this.inputResults.filter((element) => {
+        return element.media_type === 'movie'
+      });
+    },
+    searchSerie() {
+      this.filteredMovies = this.inputResults.filter((element) => {
+        return element.media_type === 'tv'
+      });
+    },
+    searchInput(query) {
       const params = {
-        query: k,
+        query: query,
         api_key: this.api_key
       }
 
-      // mostra solo se l'input non è vuoto
-      if(k !== null) {
-        return axios.get(`https://api.themoviedb.org/3/search/movie`, {params})
+      if(query !== null) {
+        return axios.get(`https://api.themoviedb.org/3/search/multi`, {params})
         .then((response) => {
-          this.movieList = response.data.results
-          this.mergeArrays()
+          this.inputResults = response.data.results
         })
       }
     },
-    // funzione di ricerca delle SERIE TV
-    // k = keywordSearch in v-model
-    searchSerie(k) {
-      const params = {
-        query: k,
-        api_key: this.api_key
-      }
-
-      if(k !== null) {
-        return axios.get(`https://api.themoviedb.org/3/search/tv`, {params})
-        .then((response) => {
-          this.seriesList = response.data.results
-          this.mergeArrays()
-        })
-      }
-    }, 
-    // funzione che unisce i due array (film, serie tv) (to fix?)
-    mergeArrays() {
-      return this.searchResultList = [...this.movieList, ...this.seriesList]
-    },
-    // richiamo le due funzioni di ricerca per inviarle al @search
-    // all'interno dell'header-container
-    searchInput(k) {
-      this.searchMovie(k)
-      this.searchSerie(k)
-    }
     
   }
 }
