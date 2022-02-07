@@ -31,16 +31,6 @@ export default {
     }
   },
   methods: {
-    searchMovie() {
-      this.filteredMovies = this.inputResults.filter((element) => {
-        return element.media_type === 'movie'
-      });
-    },
-    searchSerie() {
-      this.filteredMovies = this.inputResults.filter((element) => {
-        return element.media_type === 'tv'
-      });
-    },
     searchInput(query) {
       const params = {
         query: query,
@@ -51,8 +41,20 @@ export default {
         return axios.get(`https://api.themoviedb.org/3/search/multi`, {params})
         .then((response) => {
           this.inputResults = response.data.results
+          this.searchMovie()
+          this.searchSerie()
         })
       }
+    },
+    searchMovie() {
+      this.filteredMovies = this.inputResults.filter((element) => {
+        return element.media_type === 'movie'
+      });
+    },
+    searchSerie() {
+      this.filteredSeries = this.inputResults.filter((element) => {
+        return element.media_type === 'tv'
+      });
     },
     
   }
