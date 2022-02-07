@@ -1,8 +1,22 @@
 <template>
-    <div class="header_container d-flex justify-content-between align-items-center p-2">
-        <div class="logo">
-            <div class="text-danger fs-4 fw-bolder">BOOLFLIX</div>
-        </div>
+    <div class="header_container text-white d-flex justify-content-between align-items-center p-2">
+        <nav class="d-flex align-items-center">
+            <div class="logo">
+                <a href="#">
+                    <img class="w-100" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="">
+                </a>
+            </div>
+
+            <ul class="list-unstyled my-0">
+                <li>Home</li>
+                <li>Serie TV</li>
+                <li>Film</li>
+                <li>Originali</li>
+                <li>Aggiunti di recente</li>
+                <li>La mia lista</li>
+            </ul>
+
+        </nav>
 
         <div class="search_area">
             <input
@@ -32,5 +46,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.logo {
+    width: 150px;
 
+    a {
+        cursor: pointer;
+    }
+}
+
+nav ul {
+    margin: 0 35px;
+
+    li {
+        display: inline;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+}
 </style>

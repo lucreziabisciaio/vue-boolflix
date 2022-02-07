@@ -36,6 +36,7 @@ export default {
         api_key: this.api_key
       }
 
+      // mostra solo se l'input non è vuoto
       if(k !== null) {
         return axios.get(`https://api.themoviedb.org/3/search/movie`, {params})
         .then((response) => {
